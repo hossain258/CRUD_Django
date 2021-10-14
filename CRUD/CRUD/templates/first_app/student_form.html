@@ -1,0 +1,13 @@
+{% extends 'first_app/base.html' %}
+
+{% block body_block  %}
+
+<h1>  Student_Form </h1>
+<form action = "" method ="POST">
+{{ student_form.as_p }}
+{% csrf_token %}
+
+<button type ="btn btn-primary"> Add Student Now </button>
+</form>
+
+{% endblock  %}
