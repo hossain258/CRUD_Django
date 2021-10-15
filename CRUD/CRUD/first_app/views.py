@@ -25,3 +25,23 @@ def student_info(request,student_id):
     student_info =Student.objects.get(pk =student_id)
     diction = {'title':'student_info','student_info': student_info}
     return render(request,'first_app/student_info.html',context = diction)
+
+def student_update(request,student_id):
+    student_info =Student.objects.get(pk = student_id)
+    form = forms.studentForm(instance =student_info)
+    if request.method == "POST":
+        form =forms.studentForm(request.POST, instance=student_info)
+        
+        if form.is_valid():
+            form.save(commit = True)
+            return index(request)
+    
+    
+    diction = {'student_form':form}
+    return render(request,'first_app/student_update.html',context = diction)
+
+def student_delete(request,student_id):
+    student =Student.objects.get(pk =student_id).delete()
+    
+    diction = {'delete_message':"the message has been deleted"}
+    return render(request,'first_app/student_delete.html',context = diction)
