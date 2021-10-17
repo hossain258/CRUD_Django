@@ -42,6 +42,5 @@ def student_update(request,student_id):
 
 def student_delete(request,student_id):
     student =Student.objects.get(pk =student_id).delete()
-    
-    diction = {'delete_message':"the message has been deleted"}
+    diction = {'delete_message':'the message has been deleted'}
     return render(request,'first_app/student_delete.html',context = diction)

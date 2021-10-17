@@ -9,5 +9,5 @@
 <h2>Student Department :{{student_info.department}}</h2>
 
 <a href="{% url 'first_app:student_update' student_id=student_info.id %}" class="btn btn-primary">Update</a>
-<a href="{% url 'first_app:student_update' student_id=student_info.id %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'first_app:student_delete' student_id=student_info.id %}" class="btn btn-danger">Delete</a>
 {% endblock  %}
